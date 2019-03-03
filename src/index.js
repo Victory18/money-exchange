@@ -21,13 +21,13 @@ module.exports = function makeExchange(currency) {
             "N": nickel,
             "P": penny
         }
-        half = currency % 50;
+        half = Math.floor(currency / 50);
         currency = currency - half * 50;
-        quarter = currency % 25;
+        quarter = Math.floor(currency / 25);
         currency = currency - quarter * 25;
-        dime = currency % 10;
+        dime = Math.floor(currency / 10);
         currency = currency - dime * 10;
-        nickel = currency % 5;
+        nickel = Math.floor(currency / 5);
         currency = currency - nickel * 5;
         penny = currency / 1;
 
