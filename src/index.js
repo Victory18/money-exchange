@@ -32,9 +32,9 @@ module.exports = function makeExchange(currency) {
         penny = currency / 1;
 
         for (var key in result) {
-            if (result[key] === 0 {
+            if (result[key] === 0) {
                 delete result[key];
-            })
+            }
         }
 
     }
