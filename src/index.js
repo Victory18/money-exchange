@@ -9,30 +9,25 @@ module.exports = function makeExchange(currency) {
         return {error: "You are rich, my friend! We don't have so much coins for exchange"};
     }
     if (currency > 0 && currency < 10000) {
-        var half = 0; // 50
-        var quarter = 0; // 25
-        var dime = 0; // 10
-        var nickel = 0; // 5
-        var penny = 0; // 1
         var result = {
-            "H": half,
-            "Q": quarter,
-            "D": dime,
-            "N": nickel,
-            "P": penny
+            "H": 0,
+            "Q": 0,
+            "D": 0,
+            "N": 0,
+            "P": 0
         }
-        half = Math.floor(currency / 50);
-        currency = currency - half * 50;
-        quarter = Math.floor(currency / 25);
-        currency = currency - quarter * 25;
-        dime = Math.floor(currency / 10);
-        currency = currency - dime * 10;
-        nickel = Math.floor(currency / 5);
-        currency = currency - nickel * 5;
-        penny = currency / 1;
+        result.H = Math.floor(currency / 50);
+        currency = currency - result.H * 50;
+        result.Q = Math.floor(currency / 25);
+        currency = currency - result.Q * 25;
+        result.D = Math.floor(currency / 10);
+        currency = currency - result.D * 10;
+        result.N = Math.floor(currency / 5);
+        currency = currency - result.N * 5;
+        result.P = currency / 1;
 
         for (var key in result) {
-            if (result[key] === 0) {
+            if (result[key] == 0) {
                 delete result[key];
             }
         }
